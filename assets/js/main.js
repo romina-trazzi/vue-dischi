@@ -10,14 +10,15 @@ In base a cosa scegliamo nella select vedremo i corrispondenti cd. */
 let app = new Vue ({
     el: "#app",
     data: {
-        dischiList: []  
+        dischiList: [],
+        prova: "ciao"  
     },
     mounted () {  
-        axios.get("https://flynn.boolean.careers/exercises/api/array/music").then(response => {  
+        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+        .then(response => {  
             // console.log(response)
             const theDisco = response.data.response;  // otteniamo i dati di risposta            
-            this.dischiList.push(theDisco); // aggiungiamo i dati all'array in data
-            console.log(this.dischiList);  
+            this.dischiList = theDisco;  
         })
         .catch(error => {
             console.log("Error: " + error) // gestiamo l'errore
